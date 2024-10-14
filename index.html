@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map with MongoDB Data (Leaflet + OSM)</title>
+    <title>Map with MongoDB Data (Leaflet + OSM Night Mode)</title>
     <style>
         /* Настройка карты, чтобы занимала всю страницу */
         #map {
@@ -19,9 +19,10 @@
             // Инициализация карты с центром по умолчанию
             const map = L.map('map').setView([0, 0], 2);
 
-            // Добавление тайлов OSM на карту
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            // Добавление тайлов ночной карты (CartoDB Dark Matter)
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd'
             }).addTo(map);
 
             try {
